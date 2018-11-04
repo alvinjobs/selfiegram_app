@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Initialise Parse
+        let configuration = ParseClientConfiguration {
+            clientConfiguration in
+                clientConfiguration.applicationId = "selfiegrams-alvin"
+                clientConfiguration.server = "https://selfiegrams.herokuapp.com/parse"
+        }
+        
+        Post.registerSubclass()
+        Activity.registerSubclass()
+        Parse.initialize(with: configuration)
+        
+        let user = PFUser()
+        let username = "alvin"
+        let password = "jobs"
+        user.username = username
+        user.password = password
+        user.signUpInBackground(block: {(success, error) -> Void in
+            
+            if success {
+                print("successfully signed up a user")
+            } else {
+                PFUser.logInWithUsername(inBackground: username, password: password, block: {(user, error) -> Void in
+                    if let user = user {
+                        print("successfully logged in \(user)")
+                    }
+                })
+            }
+        })
+        
+//        // A PFObject is an object that we can add or modify in Parse.
+//        // We are adding an object of class type TestObject
+//        let testObject = PFObject(className: "TestObject")
+//
+//        // We are setting the foo property on our object to be equal to bar
+//        testObject["foo"] = "bar"
+//
+//        // We are saving our object to Parse
+//        testObject.saveInBackground (block: { (success: Bool, error: Error?) -> Void in
+//
+//            if success {
+//
+//            print("Object has been saved.")
+//            }
+//        })
+
         return true
     }
 

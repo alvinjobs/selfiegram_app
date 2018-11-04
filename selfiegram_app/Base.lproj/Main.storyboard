@@ -1,46 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TUx-37-91V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TUx-37-91V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="Bew-f6-5qQ">
             <objects>
-                <viewController id="hse-Op-Jts" sceneMemberID="viewController">
+                <viewController id="hse-Op-Jts" customClass="ProfileViewController" customModule="selfiegram_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gvi-5u-p1t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="AN8-Wh-l3o">
+                                <rect key="frame" x="97.5" y="110" width="180" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="185" id="Otp-Ag-bwT"/>
+                                    <constraint firstAttribute="width" constant="180" id="QIE-YO-2jJ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJg-5E-1lI">
+                                <rect key="frame" x="97.5" y="292" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="hse-Op-Jts" eventType="touchUpInside" id="mAy-BG-4LB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFl-2x-7K3">
+                                <rect key="frame" x="149.5" y="330" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YJg-5E-1lI" firstAttribute="top" secondItem="AN8-Wh-l3o" secondAttribute="bottom" constant="-3" id="Neb-Ai-c88"/>
+                            <constraint firstItem="AN8-Wh-l3o" firstAttribute="leading" secondItem="YJg-5E-1lI" secondAttribute="trailing" constant="-54" id="SJl-iX-4hk"/>
+                            <constraint firstItem="UFl-2x-7K3" firstAttribute="top" secondItem="AN8-Wh-l3o" secondAttribute="bottom" constant="35" id="XYR-32-acK"/>
+                            <constraint firstItem="AN8-Wh-l3o" firstAttribute="top" secondItem="YJU-7d-i7Z" secondAttribute="top" constant="46" id="dak-Y8-5GY"/>
+                            <constraint firstItem="UFl-2x-7K3" firstAttribute="centerX" secondItem="Gvi-5u-p1t" secondAttribute="centerX" id="eef-vR-GQ9"/>
+                            <constraint firstItem="AN8-Wh-l3o" firstAttribute="centerX" secondItem="Gvi-5u-p1t" secondAttribute="centerX" id="oiQ-qy-yag"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YJU-7d-i7Z"/>
                     </view>
                     <navigationItem key="navigationItem" id="qVq-Ck-XTL"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="AN8-Wh-l3o" id="Glp-CN-E3p"/>
+                        <outlet property="usernameLabel" destination="UFl-2x-7K3" id="Rzh-pM-aNc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUa-qn-ERU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1089" y="1119"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Activity View Controller-->
         <scene sceneID="f8I-qr-Gs6">
             <objects>
-                <tableViewController id="bCX-oF-Rlk" sceneMemberID="viewController">
+                <tableViewController id="bCX-oF-Rlk" customClass="ActivityViewController" customModule="selfiegram_app" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="edJ-Hl-b5Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sso-fL-df8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" textLabel="6qn-mf-qgb" style="IBUITableViewCellStyleDefault" id="sso-fL-df8" customClass="ActivityCell" customModule="selfiegram_app" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sso-fL-df8" id="fCq-zq-kyy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6qn-mf-qgb">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -80,32 +123,112 @@
             </objects>
             <point key="canvasLocation" x="-802" y="-75"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Feed Table View Controller-->
         <scene sceneID="Vbb-Ve-91u">
             <objects>
-                <tableViewController id="rAI-qh-JKK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="F03-mE-A4s">
+                <tableViewController id="rAI-qh-JKK" customClass="FeedTableViewController" customModule="selfiegram_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="320" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="F03-mE-A4s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mIA-ym-p7U">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="320" id="mIA-ym-p7U" customClass="SelfieCell" customModule="selfiegram_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mIA-ym-p7U" id="ZVO-Mr-6y1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KkG-Cr-3Bt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="250" id="bpq-vC-Lrx"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6C-0M-s4W">
+                                            <rect key="frame" x="16" y="258" width="79" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-zp-C2I">
+                                            <rect key="frame" x="16" y="287" width="75" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msl-FP-AUi">
+                                            <rect key="frame" x="344" y="258" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Rfa-wy-NvM"/>
+                                                <constraint firstAttribute="width" constant="23" id="zRG-Yx-5D2"/>
+                                            </constraints>
+                                            <state key="normal" image="hearts-off">
+                                                <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <state key="selected" image="hearts-on"/>
+                                            <connections>
+                                                <action selector="likeButtonClicked:" destination="mIA-ym-p7U" eventType="touchUpInside" id="cYe-pd-z2h"/>
+                                            </connections>
+                                        </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearts-on" translatesAutoresizingMaskIntoConstraints="NO" id="Ki4-Sn-IHh">
+                                            <rect key="frame" x="176" y="115" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="23" id="3Jz-jJ-GRb"/>
+                                                <constraint firstAttribute="height" constant="20" id="vom-GS-V72"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jjw-zp-C2I" firstAttribute="top" secondItem="T6C-0M-s4W" secondAttribute="bottom" constant="8" id="058-Kl-0oj"/>
+                                        <constraint firstItem="T6C-0M-s4W" firstAttribute="top" secondItem="KkG-Cr-3Bt" secondAttribute="bottom" constant="8" id="8Dq-x6-UDi"/>
+                                        <constraint firstItem="Ki4-Sn-IHh" firstAttribute="centerX" secondItem="KkG-Cr-3Bt" secondAttribute="centerX" id="8Ep-M2-Wjo"/>
+                                        <constraint firstItem="jjw-zp-C2I" firstAttribute="leading" secondItem="ZVO-Mr-6y1" secondAttribute="leadingMargin" id="FuE-UR-wWg"/>
+                                        <constraint firstAttribute="trailing" secondItem="msl-FP-AUi" secondAttribute="trailing" constant="8" id="HOd-yt-fVV"/>
+                                        <constraint firstItem="T6C-0M-s4W" firstAttribute="leading" secondItem="ZVO-Mr-6y1" secondAttribute="leadingMargin" id="OGE-q2-zGL"/>
+                                        <constraint firstItem="Ki4-Sn-IHh" firstAttribute="centerY" secondItem="KkG-Cr-3Bt" secondAttribute="centerY" id="QW6-Hv-aSh"/>
+                                        <constraint firstItem="KkG-Cr-3Bt" firstAttribute="top" secondItem="ZVO-Mr-6y1" secondAttribute="top" id="dw2-pG-REg"/>
+                                        <constraint firstAttribute="trailing" secondItem="KkG-Cr-3Bt" secondAttribute="trailing" id="huz-0C-San"/>
+                                        <constraint firstItem="KkG-Cr-3Bt" firstAttribute="leading" secondItem="ZVO-Mr-6y1" secondAttribute="leading" id="oTi-bE-Oey"/>
+                                        <constraint firstItem="msl-FP-AUi" firstAttribute="top" secondItem="KkG-Cr-3Bt" secondAttribute="bottom" constant="8" id="xTE-j5-Maj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentLabel" destination="jjw-zp-C2I" id="ooC-dX-76R"/>
+                                    <outlet property="heartAnimationView" destination="Ki4-Sn-IHh" id="1rm-AV-ooR"/>
+                                    <outlet property="likeButton" destination="msl-FP-AUi" id="FfO-vt-ev2"/>
+                                    <outlet property="selfieImageView" destination="KkG-Cr-3Bt" id="NO0-xy-g7y"/>
+                                    <outlet property="usernameLabel" destination="T6C-0M-s4W" id="8sN-xx-yyE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="rAI-qh-JKK" id="qXt-Tp-zej"/>
                             <outlet property="delegate" destination="rAI-qh-JKK" id="Lkz-vU-MmT"/>
+                            <outletCollection property="gestureRecognizers" destination="CWw-LE-xvP" appends="YES" id="5Cs-Ka-1Iw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Evt-dm-vdF"/>
+                    <navigationItem key="navigationItem" id="Evt-dm-vdF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="m76-VO-Ygp">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="rAI-qh-JKK" id="6Mh-9y-ZlI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="epH-Tq-2Sa">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshPulled:" destination="rAI-qh-JKK" eventType="valueChanged" id="ygs-Xt-bmh"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMw-qQ-m3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="CWw-LE-xvP">
+                    <connections>
+                        <action selector="doubleTappedSelfie:" destination="rAI-qh-JKK" id="3At-Bj-zQC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1088.8" y="-442.12893553223392"/>
         </scene>
@@ -174,5 +297,8 @@
         <image name="Activities" width="25" height="25"/>
         <image name="NewsFeed" width="25" height="25"/>
         <image name="Profile" width="25" height="25"/>
+        <image name="hearts-off" width="42" height="37"/>
+        <image name="hearts-on" width="42" height="37"/>
+        <image name="placeholder" width="256" height="256"/>
     </resources>
 </document>
